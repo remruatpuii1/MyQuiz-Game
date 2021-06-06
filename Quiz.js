@@ -29,32 +29,75 @@ class Quiz {
   }
 
   play(){
-    this.title.hide();
-    this.input1.hide();
-    this.button.hide();
-    this.input2.hide();
 
-    background("pink");
+    question.hide();
+    background("yellow");
+    fill(0);
+    textSize(30);
+    text("Result of the Quiz",340,50);
+    text("----------------------------",320,65);
 
-    for(var plr in allContestants)
+    Contestant.getPlayerInfo();
+
+    if(allContestants !== undefined)
     {
-      var correctAns="2";
-      if(correctAns===allContestants[plr].answer)
-      fill("Green");
+      var display_Answers = 230;
 
-      else
-      fill ("Red");
-    }
-
-    contestant.getContestantInfo();
-
-    if(allContestants!==undefined)
-    {
       fill("blue");
       textSize(20);
-      text("*NOTE : Contestant who answered correct are highlighted in green colour!",130,230);
-    }
-    
-  }
+      text("*Note: Contestants who anwered corret are highlighted in green colour",130,230);
 
+      for(var plr in allContestants)
+      {
+        var correctAns="2";
+        if(correctAns === allContestants[plr].answer)
+
+        fill("green")
+
+        else
+
+        fill("red");
+
+        display_Answers+=30;
+        textSize(20);
+        text(allContestants[plr].name + ":" + allContestants[plr].answer,250,display_Answers);
+
+
+      }
+
+    }
+
+
+    /*if (allContestants !== undefined)
+    {
+      for(var plr in allContestants)
+    {
+      var correctAns = "2";
+
+      if(correctAns === allContestants[plr].answer)
+      
+        fill("green")
+
+        else
+
+        fill("red");
+
+        display_position+=20;
+        textSize(15);
+        text(allContestants[plr].name + ": " + allContestants[plr].answer, 120,display_position);
+      
+    textSize(30);
+    text("Result of the Quiz");
+
+    Contestant.getContestantInfo();
+
+      fill("Blue");
+      textSize(20);
+      text("*Note: Contestants who answered correct are highlighted in green color",130,230);
+    }
+
+    //write code to highlight contest who answered correctly
+    
+  }*/
+  }
 }

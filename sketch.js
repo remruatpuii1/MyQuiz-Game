@@ -8,8 +8,7 @@ var database;
 
 var question, contestant, quiz;
 
-function setup()
-{
+function setup(){
   canvas = createCanvas(850,400);
   database = firebase.database();
   quiz = new Quiz();
@@ -17,8 +16,8 @@ function setup()
   quiz.start();
 }
 
-function draw()
-{
+
+function draw(){
   background("pink");
   if(contestantCount === 2){
     quiz.update(1);
